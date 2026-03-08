@@ -40,7 +40,7 @@ public class ContentsService {
         );
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public ContentsResponse findById(Long id) {
         Contents contents = getContentsOrThrow(id);
         contents.increaseViewCount();  // 상세 조회 시 조회수 증가
